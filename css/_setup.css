@@ -1,0 +1,59 @@
+/* css/_setup.css */
+
+#setup-view {
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+/* Lista graczy */
+.player-list {
+    width: 100%;
+    max-width: 350px;
+    margin: 50px 0;
+}
+
+.player-slot {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-bg-color);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-dark);
+}
+
+.player-slot.active {
+    border-left: 5px solid var(--green-color);
+}
+
+.player-slot:not(.active) {
+    opacity: 0.5;
+    border-left: 5px solid var(--gray-dark);
+}
+
+.player-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--gray-dark);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.player-name-edit {
+    font-size: 1.1em;
+    font-weight: 500;
+    flex-grow: 1;
+    padding: 2px 5px;
+    margin-left: -5px;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+    outline: none;
+}
