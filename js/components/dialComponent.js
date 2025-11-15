@@ -21,7 +21,7 @@ const Dial = {
 
         const segmentClasses = ['score-2', 'score-3', 'score-4', 'score-3', 'score-2'];
         const segmentScores = [2, 3, 4, 3, 2];
-        const segmentOffsets = [-20, -10, 0, 10, 20];
+        const segmentOffsets = [-12, -6, 0, 6, 12];
 
         segmentClasses.forEach((cls, i) => {
             const segment = document.createElement('div');

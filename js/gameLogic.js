@@ -7,7 +7,6 @@ const Game = {
     currentClue: '',
     currentPointerAngle: 0,
     gameState: 'IDLE', // IDLE, PSYCHIC_CLUE, GUESSING, REVEAL, GAME_OVER
-
     currentPsychicId: 1,
 
     startNewGame: function () {
@@ -75,11 +74,16 @@ const Game = {
     },
 
     calculateScore: function (targetCenterAngle, pointerAngle) {
+        targetCenterAngle = Math.floor(targetCenterAngle);
+        pointerAngle = Math.floor(pointerAngle);
+
+        pointerAngle += 90;
+        
         const diff = Math.abs(targetCenterAngle - pointerAngle);
 
-        if (diff <= 15) return 4;
-        if (diff <= 30) return 3;
-        if (diff <= 45) return 2;
+        if (diff <= 1) return 4;
+        if (diff <= 6) return 3;
+        if (diff <= 12) return 2;
         return 0;
     }
 };
