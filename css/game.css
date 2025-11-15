@@ -101,7 +101,6 @@
     border-top: 294px solid transparent;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    transition: opacity 0.3s ease, border-top-color 0.1s ease;
     opacity: 0;
     z-index: 50;
 }

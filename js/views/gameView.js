@@ -129,8 +129,8 @@ const gameView = {
             this.guesserControls.classList.add('hidden');
             this.revealControls.classList.add('hidden');
 
-            Dial.setTarget(Game.currentTargetAngle);
             Dial.setTargetVisibility(false);
+            Dial.setTarget(Game.currentTargetAngle);
             Dial.updatePointer(0);
         }
         else if (Game.gameState === 'GUESSING') {
