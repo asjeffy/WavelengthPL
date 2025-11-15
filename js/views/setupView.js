@@ -31,8 +31,6 @@ const setupView = {
             newSpan.addEventListener('click', setupView.handleNameEdit);
 
             inputField.replaceWith(newSpan);
-
-            document.querySelector(`.player-slot:nth-child(${slot}) .player-avatar`).textContent = newName.charAt(0).toUpperCase();
         };
 
         inputField.addEventListener('blur', finalizeEdit);
@@ -53,11 +51,9 @@ const setupView = {
                 
                 <div class="player-list">
                     <div class="player-slot active">
-                        <span class="player-avatar">${player1.name.charAt(0).toUpperCase()}</span>
                         <span class="player-name" data-slot="${player1.id}">${player1.name}</span>
                     </div>
                     <div class="player-slot active">
-                        <span class="player-avatar">${player2.name.charAt(0).toUpperCase()}</span>
                         <span class="player-name" data-slot="${player2.id}">${player2.name}</span>
                     </div>
                 </div>

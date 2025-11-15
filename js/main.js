@@ -35,8 +35,8 @@ const App = {
 
     gameConfig: {
         players: [
-            { id: 1, name: "Nati", avatar: "N", score: 0 },
-            { id: 2, name: "Kris", avatar: "K", score: 0 }
+            { id: 1, name: "Nati", score: 0 },
+            { id: 2, name: "Kris", score: 0 }
         ]
     }
 };
