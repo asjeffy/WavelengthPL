@@ -81,9 +81,9 @@ const Game = {
         
         const diff = Math.abs(targetCenterAngle - pointerAngle);
 
-        if (diff <= 3) return 4;
-        if (diff <= 10) return 3;
-        if (diff <= 17) return 2;
+        if (diff <= 2) return 4;
+        if (diff <= 9) return 3;
+        if (diff <= 16) return 2;
         return 0;
     }
 };
