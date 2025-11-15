@@ -15,26 +15,21 @@ const Game = {
     },
 
     startNewGame: function () {
-        // Resetowanie wyników
         App.gameConfig.players.forEach(p => p.score = 0);
         this.roundCounter = 0;
 
-        // Ustawienie początkowego Psychika (zaczynamy od Krisa, aby pierwsza runda zaczęła się od Nati)
         this.currentPsychicId = App.gameConfig.players[1].id;
 
         this.gameState = 'PSYCHIC_CLUE';
-        console.log("New game started.");
         this.startNewRound();
     },
 
     startNewRound: function () {
         this.roundCounter++;
 
-        // Zmiana ról w każdej rundzie
-        const p1Id = App.gameConfig.players[0].id; // Nati
-        const p2Id = App.gameConfig.players[1].id; // Kris
+        const p1Id = App.gameConfig.players[0].id;
+        const p2Id = App.gameConfig.players[1].id;
 
-        // Rotacja ról
         if (this.currentPsychicId === p1Id) {
             this.currentPsychicId = p2Id;
         } else {
@@ -64,7 +59,6 @@ const Game = {
 
         const points = this.calculateScore(this.currentTargetAngle, pointerAngle);
 
-        // Dodawanie punktów do wyniku Psychika
         const psychic = App.gameConfig.players.find(p => p.id === this.currentPsychicId);
         if (psychic) {
             psychic.score += points;
@@ -72,12 +66,11 @@ const Game = {
 
         this.gameState = 'REVEAL';
 
-        gameView.updateRevealDisplay(points); // Pokaż cel, punkty i przycisk "Następna runda"
+        gameView.updateRevealDisplay(points);
 
         console.log(`Guess submitted. Target was ${this.currentTargetAngle}. Scored ${points} points.`);
     },
 
-    // ZMIENIONO: Funkcja kończąca grę na powrót do ekranu startowego
     backToSetup: function () {
         this.gameState = 'IDLE';
         const finalScores = App.gameConfig.players.map(p => `${p.name}: ${p.score}`).join(', ');

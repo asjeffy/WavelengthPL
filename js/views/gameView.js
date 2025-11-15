@@ -60,7 +60,6 @@ const gameView = {
         this.spectrumRightEl = document.getElementById('spectrum-right');
         this.instructionsEl = document.getElementById('game-instructions');
         this.clueDisplayEl = document.getElementById('clue-display-area');
-        // USUNIĘTO: this.roundInfoEl = document.getElementById('game-round-info');
         this.psychicControls = document.getElementById('psychic-controls');
         this.guesserControls = document.getElementById('guesser-controls');
 
@@ -110,11 +109,8 @@ const gameView = {
 
         this.updateScoreBoard(psychic.id);
 
-        // USUNIĘTO: this.roundInfoEl.textContent = `Runda ${Game.roundCounter}`;
-
         this.spectrumEl.textContent = Game.currentSpectrum ? Game.currentSpectrum[0] : 'LEWA';
         this.spectrumRightEl.textContent = Game.currentSpectrum ? Game.currentSpectrum[1] : 'PRAWA';
-
 
         if (Game.gameState === 'PSYCHIC_CLUE') {
             this.instructionsEl.textContent = `Runda ${Game.roundCounter}: ${psychic.name} (Psychik), podaj podpowiedź ustnie. (Widzisz Cel)`;

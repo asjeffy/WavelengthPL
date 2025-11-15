@@ -16,7 +16,7 @@ const Dial = {
         this.pointerEl = document.getElementById('dial-pointer');
         this.targetAreaEl = document.getElementById('target-area');
 
-        this.updatePointer(Game.currentPointerAngle); // Start na 90 stopniach
+        this.updatePointer(Game.currentPointerAngle);
         this.addEventListeners();
     },
 

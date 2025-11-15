@@ -5,7 +5,7 @@ const setupView = {
     handleNameEdit: function (event) {
         const playerNameEl = event.currentTarget;
         const slot = playerNameEl.dataset.slot;
-        const role = playerNameEl.textContent.match(/\((.*?)\)/)?.[1] || ''; // Wyodrębnij rolę, np. "Psychik"
+        const role = playerNameEl.textContent.match(/\((.*?)\)/)?.[1] || '';
         const currentName = playerNameEl.textContent.replace(/\s*\(.*\)/, '').trim();
 
         const inputField = document.createElement('input');
@@ -27,7 +27,6 @@ const setupView = {
 
             const newSpan = document.createElement('span');
             newSpan.className = 'player-name';
-            // Wstawiamy z powrotem rolę
             newSpan.textContent = newName + (role ? ` (${role})` : '');
             newSpan.dataset.slot = slot;
             newSpan.addEventListener('click', setupView.handleNameEdit);
