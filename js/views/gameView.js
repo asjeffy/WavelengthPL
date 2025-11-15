@@ -1,8 +1,7 @@
 // js/views/gameView.js
 
 const gameView = {
-    // Referencje do dynamicznych elementów
-    spectrumEl: null, spectrumRightEl: null, instructionsEl: null, clueDisplayEl: null, roundInfoEl: null,
+    spectrumEl: null, spectrumRightEl: null, instructionsEl: null, clueDisplayEl: null,
     psychicControls: null, guesserControls: null, revealControls: null,
     scoreBoardEl: null, playerScore1El: null, playerScore2El: null,
 
@@ -19,11 +18,6 @@ const gameView = {
                 </div>
                 
                 <div class="game-status-box">
-                    <p id="game-round-info">Runda 0</p> 
-                    <div class="current-spectrum">
-                        <span class="spectrum-word-left" id="spectrum-left">LEWA</span> - 
-                        <span class="spectrum-word-right" id="spectrum-right">PRAWA</span>
-                    </div>
                     <p id="game-instructions">Instrukcje</p>
                     <p class="clue-display" id="clue-display-area"></p>
                 </div>
@@ -33,10 +27,9 @@ const gameView = {
                     <div id="dial-pointer"></div>
                 </div>
 
-                <div class="dial-labels">
-                    <span>0%</span>
-                    <span>50%</span>
-                    <span>100%</span>
+                <div class="spectrum-labels-wrapper">
+                    <span class="spectrum-word-left" id="spectrum-left">LEWA</span>
+                    <span class="spectrum-word-right" id="spectrum-right">PRAWA</span>
                 </div>
 
                 <div class="game-controls">
@@ -64,10 +57,10 @@ const gameView = {
 
     getReferences: function () {
         this.spectrumEl = document.getElementById('spectrum-left');
-        this.spectrumRightEl = document.getElementById('spectrum-right'); // Nowa referencja dla prawej strony
+        this.spectrumRightEl = document.getElementById('spectrum-right');
         this.instructionsEl = document.getElementById('game-instructions');
         this.clueDisplayEl = document.getElementById('clue-display-area');
-        this.roundInfoEl = document.getElementById('game-round-info');
+        // USUNIĘTO: this.roundInfoEl = document.getElementById('game-round-info');
         this.psychicControls = document.getElementById('psychic-controls');
         this.guesserControls = document.getElementById('guesser-controls');
 
@@ -90,7 +83,6 @@ const gameView = {
             Game.startNewRound();
         });
 
-        // NOWY: Obsługa przycisku "Wróć do menu"
         document.getElementById('exit-game-btn').addEventListener('click', () => {
             Game.backToSetup();
         });
@@ -118,9 +110,8 @@ const gameView = {
 
         this.updateScoreBoard(psychic.id);
 
-        this.roundInfoEl.textContent = `Runda ${Game.roundCounter}`;
+        // USUNIĘTO: this.roundInfoEl.textContent = `Runda ${Game.roundCounter}`;
 
-        // ZMIENIONO: Ustawienie prawdziwych słów spektrum
         this.spectrumEl.textContent = Game.currentSpectrum ? Game.currentSpectrum[0] : 'LEWA';
         this.spectrumRightEl.textContent = Game.currentSpectrum ? Game.currentSpectrum[1] : 'PRAWA';
 

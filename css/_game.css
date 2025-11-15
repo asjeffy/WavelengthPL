@@ -55,21 +55,6 @@
     border: 1px solid var(--gray-dark);
 }
 
-.current-spectrum {
-    font-size: 1.4em;
-    font-weight: bold;
-    color: var(--gray-light);
-    margin-bottom: 15px;
-}
-
-.spectrum-word-left {
-    color: var(--red-color);
-}
-
-.spectrum-word-right {
-    color: var(--accent-color);
-}
-
 .clue-display {
     font-size: 1.2em;
     font-weight: 500;
@@ -93,18 +78,47 @@
     touch-action: none;
 }
 
-/* Wskaźnik kąta (0% na lewo, 100% na prawo) */
+/* --- ETYKIETY SPEKTRUM POD TARCZĄ (ZBLIŻONE) --- */
+.spectrum-labels-wrapper {
+    display: flex;
+    justify-content: space-between;
+    /* Rozsuwa słowa na boki */
+    width: 90vw;
+    /* Użyj tej samej szerokości co dial-container */
+    max-width: 400px;
+    /* Użyj tej samej max-width co dial-container */
+    margin: 5px auto 0 auto;
+    /* Zmniejszony margines, aby zbliżyć do półkola */
+
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--gray-light);
+}
+
+.spectrum-labels-wrapper .spectrum-word-left {
+    color: var(--red-color);
+    /* Zachowaj czerwony dla lewej strony */
+    text-align: left;
+}
+
+.spectrum-labels-wrapper .spectrum-word-right {
+    color: var(--accent-color);
+    /* Zachowaj akcent dla prawej strony */
+    text-align: right;
+}
+
+/* USUNIĘTO: .dial-labels (był to kontener dla 0%, 50%, 100%) */
+/*
 .dial-labels {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 90vw;
     max-width: 400px;
-    margin: 0 auto;
+    margin: 5px auto 0 auto;
     font-size: 0.8em;
     color: var(--gray-light);
-    position: relative;
-    top: -10px;
 }
+*/
 
 
 /* --- OBSZAR CELU (TARGET) --- */
