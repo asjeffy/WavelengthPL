@@ -1,23 +1,18 @@
 :root {
-    /* Kolory inspirowane zrzutami ekranu */
     --primary-bg-color: #0d1226;
-    /* Ciemne tło gwieździste */
     --secondary-bg-color: #1a2233;
     --text-color: #e0e0e0;
     --accent-color: #4a90e2;
-    /* Niebieski dla przycisków/akcentów */
     --red-color: #e74c3c;
     --green-color: #27ae60;
     --gray-light: #cccccc;
     --gray-dark: #666666;
 
-    /* Typografia */
     --font-family-sans: 'Helvetica Neue', Arial, sans-serif;
     --font-size-base: 16px;
     --heading-font-size: 1.8em;
 }
 
-/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -32,49 +27,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     overflow: hidden;
 }
 
-/* Kontener całej aplikacji, symulujący ekran telefonu */
-#app-container {
-    width: 100vw;
-    height: 100vh;
-    max-width: 450px;
-    max-height: 850px;
-    background-color: var(--secondary-bg-color);
-    border-radius: 25px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Bazowy styl dla wszystkich widoków */
-.app-view {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-}
-
-.app-view.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-/* Globalne style przycisków */
 .btn {
     display: block;
     width: 80%;
@@ -110,7 +65,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Nagłówki sekcji w widokach */
 .view-title {
     font-size: var(--heading-font-size);
     color: var(--text-color);
@@ -119,8 +73,6 @@ body {
 }
 
 .view-content {
-    width: 100%;
-    max-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,7 +80,6 @@ body {
     flex-grow: 1;
 }
 
-/* Podstawowy styl pól input */
 .input-field {
     width: 80%;
     max-width: 300px;
@@ -144,22 +95,6 @@ body {
 
 .input-field::placeholder {
     color: var(--gray-light);
-}
-
-/* Tło gwieździste */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05) 0%, transparent 20%),
-        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.05) 0%, transparent 20%),
-        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB2aWV3Qm94PSIwIDAgNCA0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0yIDBDMi41NTIzIDAgMy4wMzg3OCAwLjIyMDI0OSAzLjU4MTg4NyAwLjUwNzAzOUwyIDBaIiBmaWxsPSIjRkZGRkZGIi8+PC9zdmc+') repeat;
-    background-size: 4px 4px, 100% 100%;
-    opacity: 0.1;
-    z-index: -1;
 }
 
 .hidden {

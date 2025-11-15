@@ -3,17 +3,33 @@
 const Dial = {
     dialContainer: null,
     pointerEl: null,
-    targetAreaEl: null,
+    targetSegmentsEl: null,
     isDragging: false,
 
     init: function (containerId) {
         this.dialContainer = document.getElementById(containerId);
 
         this.pointerEl = document.getElementById('dial-pointer');
-        this.targetAreaEl = document.getElementById('target-area');
+        this.targetSegmentsEl = document.getElementById('target-segments');
+
+        if (this.targetSegmentsEl) {
+            this.initDynamicSegments();
+        }
 
         this.updatePointer(Game.currentPointerAngle);
         this.addEventListeners();
+    },
+
+    initDynamicSegments: function () {
+        this.targetSegmentsEl.innerHTML = '';
+
+        const segmentClasses = ['score-2', 'score-3', 'score-4', 'score-3', 'score-2'];
+
+        segmentClasses.forEach((cls, i) => {
+            const segment = document.createElement('div');
+            segment.classList.add('target-segment', cls);
+            this.targetSegmentsEl.appendChild(segment);
+        });
     },
 
     addEventListeners: function () {
@@ -43,12 +59,12 @@ const Dial = {
     },
 
     setTarget: function (centerAngle) {
-        const rotationAdjustment = centerAngle - 90;
-        this.targetAreaEl.style.transform = `translateX(-50%) rotate(${rotationAdjustment}deg)`;
+        const rotation = centerAngle - 90;
+        this.targetSegmentsEl.style.transform = `rotate(${rotation}deg)`;
     },
 
     setTargetVisibility: function (visible) {
-        this.targetAreaEl.style.opacity = visible ? '1' : '0';
+        this.targetSegmentsEl.style.opacity = visible ? '1' : '0';
     },
 
     updatePointer: function (angle) {

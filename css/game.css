@@ -1,19 +1,18 @@
-/* css/_game.css */
+/* css/game.css */
 
-/* Globalne ustawienia dla ekranu gry */
 #game-view {
     justify-content: space-between;
     padding: 20px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Nowy element: Pasek wyników */
 .score-board {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    max-width: 400px;
-    margin-bottom: 15px;
+    margin: 0 auto 15px auto;
 }
 
 .player-score-box {
@@ -27,7 +26,6 @@
     border: 1px solid var(--gray-dark);
 }
 
-/* Wizualne rozróżnienie ról */
 .player-score-box.psychic {
     border-color: var(--red-color);
     box-shadow: 0 0 5px rgba(231, 76, 60, 0.4);
@@ -43,11 +41,9 @@
     margin-left: 5px;
 }
 
-/* Sekcja statusu na górze */
 .game-status-box {
     width: 100%;
-    max-width: 400px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
     padding: 10px;
     border-radius: 8px;
     background-color: var(--secondary-bg-color);
@@ -59,16 +55,12 @@
     font-weight: 500;
     color: var(--text-color);
     margin-top: 10px;
-    min-height: 20px;
 }
 
-/* --- TARCZA (Dial) --- */
 .dial-container {
     position: relative;
-    width: 90vw;
-    max-width: 400px;
-    height: calc(90vw / 2);
-    max-height: 200px;
+    width: 100%;
+    height: 200px;
     overflow: hidden;
     border-radius: 200px 200px 0 0;
     margin: 20px auto;
@@ -77,53 +69,86 @@
     touch-action: none;
 }
 
-/* --- ETYKIETY SPEKTRUM POD TARCZĄ (ZBLIŻONE) --- */
 .spectrum-labels-wrapper {
     display: flex;
-    justify-content: space-between; /* Rozsuwa słowa na boki */
-    width: 90vw; /* Użyj tej samej szerokości co dial-container */
-    max-width: 400px; /* Użyj tej samej max-width co dial-container */
-    margin: 5px auto 0 auto; /* Zmniejszony margines, aby zbliżyć do półkola */
-    
+    justify-content: space-between;
+    width: 90vw;
+    max-width: 400px;
+    margin: 5px auto 0 auto;
     font-size: 1.1em;
     font-weight: bold;
-    color: var(--gray-light); 
+    color: var(--gray-light);
 }
 
 .spectrum-labels-wrapper .spectrum-word-left {
-    color: var(--red-color); /* Zachowaj czerwony dla lewej strony */
+    color: var(--red-color);
     text-align: left;
 }
 
 .spectrum-labels-wrapper .spectrum-word-right {
-    color: var(--accent-color); /* Zachowaj akcent dla prawej strony */
+    color: var(--accent-color);
     text-align: right;
 }
 
-/* --- OBSZAR CELU (TARGET) --- */
-#target-area {
+#target-segments {
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200%;
-    height: 200%;
-    border-radius: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 200px 200px 0 0;
     transform-origin: 50% 100%;
-
-    /* Jednolity zielony kolor */
-    background: conic-gradient(transparent 0deg,
-            transparent 45deg,
-            #66bb6a 45deg, 
-            #66bb6a 135deg, 
-            transparent 135deg,
-            transparent 180deg);
-            
-    transition: opacity 0.3s ease;
     opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 50;
 }
 
-/* --- WSKAŹNIK GRACZA (POINTER) --- */
+.target-segment {
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 100%;
+    transform-origin: bottom center;
+    border-top: 294px solid transparent;
+    border-left: 23px solid transparent;
+    border-right: 23px solid transparent;
+    transition: border-top-color 0.1s ease;
+}
+
+.target-segment:nth-child(1) {
+    transform: translateX(-50%) translateY(-190px) rotate(-20deg);
+}
+
+.target-segment:nth-child(2) {
+    transform: translateX(-50%) translateY(-190px) rotate(-10deg);
+}
+
+.target-segment:nth-child(3) {
+    transform: translateX(-50%) translateY(-190px) rotate(0deg);
+}
+
+.target-segment:nth-child(4) {
+    transform: translateX(-50%) translateY(-190px) rotate(10deg);
+}
+
+.target-segment:nth-child(5) {
+    transform: translateX(-50%) translateY(-190px) rotate(20deg);
+}
+
+.target-segment.score-4 {
+    border-top-color: #E7543C;
+}
+
+.target-segment.score-3 {
+    border-top-color: #FF8C4D;
+}
+
+.target-segment.score-2 {
+    border-top-color: #FFB770;
+}
+
 #dial-pointer {
     position: absolute;
     bottom: 0;
@@ -136,7 +161,18 @@
     pointer-events: none;
 }
 
-/* Kropka na końcu wskaźnika */
+#dial-pointer::before {
+    content: '';
+    position: absolute;
+    bottom: -35px;
+    left: -35px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #A93226;
+    z-index: 200;
+}
+
 #dial-pointer::after {
     content: '';
     position: absolute;
@@ -149,9 +185,8 @@
     box-shadow: 0 0 5px rgba(231, 76, 60, 0.7);
 }
 
-/* --- Sekcja kontrolna --- */
 .game-controls {
     width: 100%;
     max-width: 400px;
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
 }
