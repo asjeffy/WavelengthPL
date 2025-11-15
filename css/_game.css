@@ -43,7 +43,6 @@
     margin-left: 5px;
 }
 
-
 /* Sekcja statusu na górze */
 .game-status-box {
     width: 100%;
@@ -81,32 +80,25 @@
 /* --- ETYKIETY SPEKTRUM POD TARCZĄ (ZBLIŻONE) --- */
 .spectrum-labels-wrapper {
     display: flex;
-    justify-content: space-between;
-    /* Rozsuwa słowa na boki */
-    width: 90vw;
-    /* Użyj tej samej szerokości co dial-container */
-    max-width: 400px;
-    /* Użyj tej samej max-width co dial-container */
-    margin: 5px auto 0 auto;
-    /* Zmniejszony margines, aby zbliżyć do półkola */
-
+    justify-content: space-between; /* Rozsuwa słowa na boki */
+    width: 90vw; /* Użyj tej samej szerokości co dial-container */
+    max-width: 400px; /* Użyj tej samej max-width co dial-container */
+    margin: 5px auto 0 auto; /* Zmniejszony margines, aby zbliżyć do półkola */
+    
     font-size: 1.1em;
     font-weight: bold;
-    color: var(--gray-light);
+    color: var(--gray-light); 
 }
 
 .spectrum-labels-wrapper .spectrum-word-left {
-    color: var(--red-color);
-    /* Zachowaj czerwony dla lewej strony */
+    color: var(--red-color); /* Zachowaj czerwony dla lewej strony */
     text-align: left;
 }
 
 .spectrum-labels-wrapper .spectrum-word-right {
-    color: var(--accent-color);
-    /* Zachowaj akcent dla prawej strony */
+    color: var(--accent-color); /* Zachowaj akcent dla prawej strony */
     text-align: right;
 }
-
 
 /* --- OBSZAR CELU (TARGET) --- */
 #target-area {
@@ -119,13 +111,14 @@
     border-radius: 50%;
     transform-origin: 50% 100%;
 
+    /* Jednolity zielony kolor */
     background: conic-gradient(transparent 0deg,
             transparent 45deg,
-            #66bb6a 45deg,
-            #66bb6a 135deg,
+            #66bb6a 45deg, 
+            #66bb6a 135deg, 
             transparent 135deg,
             transparent 180deg);
-
+            
     transition: opacity 0.3s ease;
     opacity: 0;
 }

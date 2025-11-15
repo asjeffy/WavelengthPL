@@ -8,10 +8,6 @@ const Dial = {
 
     init: function (containerId) {
         this.dialContainer = document.getElementById(containerId);
-        if (!this.dialContainer) {
-            console.error("Dial container not found!");
-            return;
-        }
 
         this.pointerEl = document.getElementById('dial-pointer');
         this.targetAreaEl = document.getElementById('target-area');
@@ -56,7 +52,7 @@ const Dial = {
     },
 
     updatePointer: function (angle) {
-        Game.currentPointerAngle = Math.max(0, Math.min(180, angle));
+        Game.currentPointerAngle = Math.max(-90, Math.min(90, angle));
         this.pointerEl.style.transform = `rotate(${Game.currentPointerAngle}deg)`;
     },
 
@@ -73,13 +69,15 @@ const Dial = {
 
         let finalAngle;
 
-        if (angleDeg < 0) {
-            finalAngle = 180 + angleDeg;
-        } else {
-            finalAngle = 180 - angleDeg;
+        if (deltaY < 0) {
+            return;
         }
 
-        finalAngle = Math.max(0, Math.min(180, finalAngle));
+        if (angleDeg >= 0) {
+            finalAngle = angleDeg - 90;
+        } else {
+            finalAngle = angleDeg + 90;
+        }
 
         this.updatePointer(finalAngle);
     }

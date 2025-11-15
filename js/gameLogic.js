@@ -5,7 +5,7 @@ const Game = {
     currentSpectrum: null,
     currentTargetAngle: 0,
     currentClue: '',
-    currentPointerAngle: 90,
+    currentPointerAngle: 0,
     gameState: 'IDLE', // IDLE, PSYCHIC_CLUE, GUESSING, REVEAL, GAME_OVER
 
     currentPsychicId: null,
@@ -41,7 +41,7 @@ const Game = {
         this.currentClue = 'USTNIE';
         this.gameState = 'PSYCHIC_CLUE';
 
-        Dial.updatePointer(90);
+        Dial.updatePointer(0);
 
         gameView.updateDisplay();
     },

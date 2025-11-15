@@ -122,7 +122,7 @@ const gameView = {
 
             Dial.setTarget(Game.currentTargetAngle);
             Dial.setTargetVisibility(true);
-            Dial.updatePointer(90);
+            Dial.updatePointer(0);
         }
         else if (Game.gameState === 'GUESSING') {
             this.instructionsEl.textContent = `Runda ${Game.roundCounter}: ${guesser.name}, ustaw wskaźnik. (Cel ukryty)`;
