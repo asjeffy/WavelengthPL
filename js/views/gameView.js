@@ -23,7 +23,6 @@ const gameView = {
                 </div>
 
                 <div class="dial-container" id="main-dial-container">
-                    <div id="target-segments"></div>
                     <div id="dial-pointer"></div>
                 </div>
 

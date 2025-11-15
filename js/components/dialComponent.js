@@ -3,33 +3,35 @@
 const Dial = {
     dialContainer: null,
     pointerEl: null,
-    targetSegmentsEl: null,
+    targetSegments: [],
     isDragging: false,
 
     init: function (containerId) {
         this.dialContainer = document.getElementById(containerId);
-
         this.pointerEl = document.getElementById('dial-pointer');
-        this.targetSegmentsEl = document.getElementById('target-segments');
 
-        if (this.targetSegmentsEl) {
-            this.initDynamicSegments();
-        }
-
+        this.initDynamicSegments();
         this.updatePointer(Game.currentPointerAngle);
         this.addEventListeners();
     },
 
     initDynamicSegments: function () {
-        this.targetSegmentsEl.innerHTML = '';
+        this.targetSegments = [];
+        this.dialContainer.innerHTML = '';
 
         const segmentClasses = ['score-2', 'score-3', 'score-4', 'score-3', 'score-2'];
+        const segmentOffsets = [-20, -10, 0, 10, 20];
 
         segmentClasses.forEach((cls, i) => {
             const segment = document.createElement('div');
             segment.classList.add('target-segment', cls);
-            this.targetSegmentsEl.appendChild(segment);
+            segment.dataset.offset = segmentOffsets[i];
+
+            this.dialContainer.prepend(segment);
+            this.targetSegments.push(segment);
         });
+
+        this.dialContainer.appendChild(this.pointerEl);
     },
 
     addEventListeners: function () {
@@ -59,12 +61,20 @@ const Dial = {
     },
 
     setTarget: function (centerAngle) {
-        const rotation = centerAngle - 90;
-        this.targetSegmentsEl.style.transform = `rotate(${rotation}deg)`;
+        const baseRotation = centerAngle - 90;
+
+        this.targetSegments.forEach(segment => {
+            const offset = parseFloat(segment.dataset.offset);
+            const finalRotation = baseRotation + offset;
+
+            segment.style.transform = `translateX(-50%) translateY(-190px) rotate(${finalRotation}deg)`;
+        });
     },
 
     setTargetVisibility: function (visible) {
-        this.targetSegmentsEl.style.opacity = visible ? '1' : '0';
+        this.targetSegments.forEach(segment => {
+            segment.style.opacity = visible ? '1' : '0';
+        });
     },
 
     updatePointer: function (angle) {
